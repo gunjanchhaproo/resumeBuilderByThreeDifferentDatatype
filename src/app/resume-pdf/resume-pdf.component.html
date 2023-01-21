@@ -1,0 +1,333 @@
+<!-- <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button> -->
+<!-- {{resumeForm.value|json}} -->
+<div class="container-fluid" [hidden]="cardClicked">
+    <h1 class="text-center p-4">Upload Your Details</h1>
+    <div class="align-itmes-center px-5">
+        <form [formGroup]="resumeForm">
+            <div class="row">
+                <div class="form-group col-2">
+                    <label for="name" class="fw-bold text-lead fst-italic"><h5>Name</h5></label>
+                </div>
+                <div class="form-group col-3">
+                    <input type="text" id="name" class="form-control" formControlName="name">
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="form-group col-2">
+                    <label for="email" class="fw-bold text-lead fst-italic"><h5>Email</h5></label>
+                </div>
+                <div class="form-group col-3">
+                    <input type="text" id="email" class="form-control" formControlName="email">
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="form-group col-2">
+                    <label for="phone" class="fw-bold text-lead fst-italic"><h5>Phone Number</h5></label>
+                </div>
+                <div class="form-group col-3">
+                    <input type="text" id="phone" class="form-control" formControlName="phone">
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="form-group col-2">
+                    <label for="linkedin" class="fw-bold text-lead fst-italic"><h5>Your Linkedin</h5></label>
+                </div>
+                <div class="form-group col-3">
+                    <input type="text" id="linkedin" class="form-control" formControlName="linkedin">
+                </div>
+            </div>
+
+            <div class="row py-3">
+                <div class="form-group col-2">
+                    <label for="git" class="fw-bold text-lead fst-italic"><h5>Your Github</h5></label>
+                </div>
+                <div class="form-group col-3">
+                    <input type="text" id="git" class="form-control" formControlName="git">
+                </div>
+            </div>
+
+            <div class="row py-3">
+                <div class="form-group col-2">
+                    <label for="specialisation" class="fw-bold text-lead fst-italic"><h5>Specialisation</h5></label>
+                </div>
+                <div class="form-group col-3">
+                    <input type="text" id="specialisation" class="form-control" formControlName="specialisation">
+                </div>
+            </div>
+
+            <div class="row py-3">
+                <div class="form-group col-2">
+                    <label class="fw-bold text-lead fst-italic"><h5>Education</h5></label>
+                </div>
+                <div class="form-group col-3">
+                    <input type="checkbox" class="p-1" formControlName="ssc"><span class="ms-2 me-5">SSC</span>
+                    <input type="checkbox" class="p-1" formControlName="hsc"><span class="ms-2 me-5">HSC</span>
+                    <input type="checkbox" class="p-1" formControlName="degree"><span class="ms-2 me-5">Degree</span>
+                </div>
+            </div>
+
+            <div class="row py-3">
+                <div class="form-group col-2">
+                    <label for="skills" class="fw-bold text-lead fst-italic"><h5>Skills</h5></label>
+                </div>
+                <div class="form-group col-3">
+                    <input type="text" id="skills" formControlName="skills" class="form-control" name="" placeholder="e.g. Angular / Node / PHP " required >
+                </div>
+            </div>
+
+            <div class="row py-3">
+                <div class="form-group col-2">
+                    <label for="projects" class="fw-bold fst-italic text-lead"><h5>Projects</h5></label>
+                </div>
+                <div class="form-group">
+                    <textarea name="project1" id="project1" class="form-control" formControlName="project1" cols="30" rows="5"></textarea>
+                    <textarea name="project2" id="project2" class="form-control" formControlName="project2" cols="30" rows="5"></textarea>
+                    <textarea name="project3" id="project3" class="form-control" formControlName="project3" cols="30" rows="5"></textarea>
+                    <textarea name="project4" id="project4" class="form-control" formControlName="project4" cols="30" rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="row py-3">
+                <div class="form-group col-2">
+                    <label for="experience" class="fw-bold fst-italic text-lead"><h5>Experience</h5></label>
+                </div>
+                <div class="form-group">
+                    <textarea name="exp1" id="exp1" class="form-control" formControlName="exp1" cols="30" rows="5"></textarea>
+                    <textarea name="exp2" id="exp2" class="form-control" formControlName="exp2" cols="30" rows="5"></textarea>
+                    <textarea name="exp3" id="exp3" class="form-control" formControlName="exp3" cols="30" rows="5"></textarea>
+                    <textarea name="exp4" id="exp4" class="form-control" formControlName="exp4" cols="30" rows="5"></textarea>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" (click)="clicked=true">Generate CV</button>
+           
+        </form>
+        
+
+    </div>
+  </div>
+
+<div class="container mx-auto mt-4" [hidden]="!clicked">
+  <div class="row justify-content-center">
+    <div class="col-md-4" [hidden]="cardClicked">
+      <div class="card" style="width: 18rem;">
+        <img src="../../assets/images/resume1img.jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">White Template</h5>
+            <a class="btn mr-2"(click)="cardClicked=1"><i class="fas fa-link"></i> Show Resume</a>
+        </div>
+      </div>
+    </div>    
+    <div class="col-md-4" [hidden]="cardClicked">
+        <div class="card" style="width: 18rem;">
+          <img src="../../assets/images/resume1img.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+              <h5 class="card-title">Black and white Template</h5>
+                <a  class="btn mr-2"(click)="cardClicked=2"><i class="fas fa-link"></i> Show Resume</a>
+              
+          </div>
+        </div>
+    </div> 
+    
+    
+</div>
+
+<button class="btn btn-success btn-block" (click)="openPDF()" [hidden]="cardClicked==0">Download PDF</button>
+<div [hidden]="cardClicked!=1" id="firstResume">
+
+<div id="doc2" class="yui-t7">
+	<div id="inner">
+	
+		<div id="hd">
+			<div class="yui-gc">
+				<div class="yui-u first">
+					<h1>{{resumeForm.get('name')?.value}}</h1>
+					<h2>Web Designer, Director</h2>
+				</div>
+
+				<div class="yui-u">
+					<div class="contact-info">
+						<h3><a href="mailto:name@yourdomain.com">{{resumeForm.get('email')?.value}}</a></h3>
+						
+                       <h3> <a href="">Github: {{resumeForm.get('git')?.value}}</a></h3>
+                       <h3> <a href="">Linkedln: {{resumeForm.get('linkedin')?.value}}</a></h3>
+
+                       <h3>{{resumeForm.get('phone')?.value}}</h3>
+                        
+					</div><!--// .contact-info -->
+				</div>
+			</div><!--// .yui-gc -->
+		</div><!--// hd -->
+
+		<div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Specialisation</h2>
+						</div>
+						<div class="yui-u">
+							<p class="enlarge">
+								{{resumeForm.get('specialisation')?.value}}
+							</p>
+						</div>
+					</div>
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Skills</h2>
+						</div>
+						<div class="yui-u">
+								<div class="talent">
+									{{resumeForm.get('skills')?.value}}
+								</div>
+						</div>
+					</div><!--// .yui-gf -->
+
+                    <div class="yui-gf">
+	
+						<div class="yui-u first">
+							<h2>Projects</h2>
+						</div><!--// .yui-u -->
+
+						<div class="yui-u">
+
+							<div class="job">
+                                <pre>
+                                    {{resumeForm.get('project1')?.value}}
+                                </pre>
+								
+                                <pre>
+                                    {{resumeForm.get('project2')?.value}}
+                                </pre>
+								
+                                <pre>
+                                    {{resumeForm.get('project3')?.value}}
+                                </pre>
+								
+                                <pre>
+                                    {{resumeForm.get('project4')?.value}}
+                                </pre>
+								
+							</div>
+
+						</div><!--// .yui-u -->
+					</div><!--// .yui-gf -->
+				
+					<div class="yui-gf">
+	
+						<div class="yui-u first">
+							<h2>Experience</h2>
+						</div><!--// .yui-u -->
+
+						<div class="yui-u">
+
+							<div class="job">
+                                <pre>
+                                    {{resumeForm.get('exp1')?.value}}
+                                </pre>
+								
+                                <pre>
+                                    {{resumeForm.get('exp2')?.value}}
+                                </pre>
+								
+                                <pre>
+                                    {{resumeForm.get('exp3')?.value}}
+                                </pre>
+								
+                                <pre>
+                                    {{resumeForm.get('exp4')?.value}}
+                                </pre>
+							</div>
+
+							
+
+						</div><!--// .yui-u -->
+					</div><!--// .yui-gf -->
+
+
+					<div class="yui-gf last">
+						<div class="yui-u first">
+							<h2>Education</h2>
+						</div>
+						<div class="yui-u">
+							<h2>Indiana University - Bloomington, Indiana</h2>
+							<h3>Dual Major, Economics and English &mdash; <strong>4.0 GPA</strong> </h3>
+						</div>
+					</div><!--// .yui-gf -->
+
+
+				</div><!--// .yui-b -->
+			</div><!--// yui-main -->
+		</div><!--// bd -->
+
+
+	</div><!-- // inner -->
+
+
+</div><!--// doc -->
+
+  
+</div>
+<div [hidden]="cardClicked!=2" id="secondResume">
+    <div class="container">
+        <h1 class="name">{{resumeForm.get('name')?.value}}</h1>
+        <p class="contact-info">
+          <a href="mailto:johndoe@email.com">{{resumeForm.get('email')?.value}}</a> | 
+          <a href="tel:555-555-5555">{{resumeForm.get('phone')?.value}}</a> | 
+          <a href="https://linkedin.com/in/johndoe">LinkedIn:{{resumeForm.get('linkedin')?.value}}</a>
+          <a href="https://linkedin.com/in/johndoe">Git:{{resumeForm.get('git')?.value}}</a>
+        </p>
+        <h2>Specialisation</h2>
+        <p>{{resumeForm.get('specialisation')?.value}}</p>
+        <h2>Projects</h2>
+        <div class="experience">
+            <pre>
+                {{resumeForm.get('project1')?.value}}
+            </pre>
+
+            <pre>
+                {{resumeForm.get('project2')?.value}}
+            </pre>
+
+            <pre>
+                {{resumeForm.get('project3')?.value}}
+            </pre>
+
+            <pre>
+                {{resumeForm.get('project4')?.value}}
+            </pre>
+        </div>
+        <h2>Experience</h2>
+        <div class="experience">
+            <pre>
+                {{resumeForm.get('exp1')?.value}}
+            </pre>
+
+            <pre>
+                {{resumeForm.get('exp2')?.value}}
+            </pre>
+
+            <pre>
+                {{resumeForm.get('exp3')?.value}}
+            </pre>
+
+            <pre>
+                {{resumeForm.get('exp4')?.value}}
+            </pre>
+        </div>
+        <h2>Education</h2>
+        <div class="education">
+          <h3>Bachelor of Science in Computer Science - University Name</h3>
+          <p>Sep 2014 - May 2018</p>
+          <ul>
+            <li>GPA: 3.8/4.0</li>
+            <li>Relevant coursework: Data Structures and Algorithms, Software Engineering, Database Systems</li>
+          </ul>
+        </div>
+        <h2>Skills</h2>
+        {{resumeForm.get('skills')?.value}}
+      </div>
+</div>
+
